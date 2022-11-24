@@ -11,3 +11,4 @@ ffmpeg-python
 git+https://github.com/openai/whisper.git 
 moviepy
 googledrivedownloader
+gunicorn
