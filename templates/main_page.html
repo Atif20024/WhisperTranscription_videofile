@@ -4,16 +4,17 @@
 <html>
 <body>
 
-<h1>input your file link here choose the file_id</h1>
-<h2>HTML Forms</h2>
+<h3>input your file link here choose the file_id</h3>
+<p>input only file id<br> e.g https://drive.google.com/file/d/1EF8zsMYmSeXX9VeKekiEcJX6H8eCA6cL/view?usp=share_link if this is the link, input only this: 1EF8zsMYmSeXX9VeKekiEcJX6H8eCA6cL</p>
 
-<form action="/action_page.php">
-  <label for="fname">file id here:</label><br>
-  <input type="text" id="fname" name="fname" value="file id here"><br>
-  <input type="submit" value="Submit">
+<form action="{{ url_for('transcribe')}}"method="post">
+  <input type="text" name="file_id" placeholder="file_id" required="required" /><br>
+  <button type="submit" class="btn btn-primary btn-block btn-large">generate</button>
 </form> 
 
-<p>If you click the "Submit" button, we will generate transcription for you</p>
+<p>If you click the "transcribe" button, we will generate the transcription for you</p>
 
 </body>
+
+{{prediction_text}}
 </html>

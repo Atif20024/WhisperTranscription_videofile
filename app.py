@@ -15,9 +15,10 @@ def home():
 @app.route('/transcribe', methods=['POST'])
 def transcribe():
     # getting the video link as data. that's all i need.
-    print("input only file id\n e.g https://drive.google.com/file/d/1EF8zsMYmSeXX9VeKekiEcJX6H8eCA6cL/view?usp=share_link if this is the link, input only this: 1EF8zsMYmSeXX9VeKekiEcJX6H8eCA6cL")
-    data = request.json['data']
-    file_id = data['file_id']
+    
+    # data = request.json['data']
+    # file_id = data['file_id']
+    file_id = request.form.values()
     video_file = gdd.download_file_from_google_drive(file_id=file_id,
         dest_path='./data/video.mp4', unzip=False)
     
@@ -34,8 +35,7 @@ def transcribe():
     print(transcript)
     with open('./data/final_transcript.txt', 'w') as f:
         f.write(transcript)
-    
-    return render_template('main_page.html')
+    return render_template('main_page.html', prediction_text="{}".format(transcript))
 
 
 if __name__ == "__main__":
