@@ -21,7 +21,7 @@ def transcribe():
         dest_path='./data/video.mp4', unzip=False)
     
     # tiny, base, small, medium, large: pick one model among these
-    model = whisper.load_model("small")
+    model = whisper.load_model("base")
     video_file_name =  './data/video.mp4'
     video = VideoFileClip(video_file_name)
     audio = video.audio
