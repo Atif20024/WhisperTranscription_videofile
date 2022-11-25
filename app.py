@@ -1,7 +1,5 @@
 from flask import Flask, request, app, jsonify, render_template
 
-import pandas as pd
-import numpy as np
 from google_drive_downloader import GoogleDriveDownloader as gdd
 import whisper
 from moviepy.editor import *
